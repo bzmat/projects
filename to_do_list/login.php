@@ -40,7 +40,9 @@ if (isset($_POST['login'])) {
 
 		}else{
 
-				echo "Dane logowania są błędne ";
+				header("Location: index.php");
+
+				$_SESSION['error_log'] = "Login lub hasło są błędne. Spróbuj jeszcze raz";
 	}
 	}
 
@@ -50,7 +52,10 @@ if (isset($_POST['login'])) {
 
 }else{
 
-	echo "Proszę uzupłenić wszystkie pola";
+	header("Location: index.php");
+
+	$_SESSION['error_log'] = "Proszę uzupełenić wszystkie pola";
+	
 }
 
  ?>

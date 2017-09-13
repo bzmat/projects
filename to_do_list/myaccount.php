@@ -83,8 +83,8 @@ if (isset($_GET['del'])) {
          
             
             <form action="" method="POST" class="form-signin">
-              <h1 class="form-signin-heading"><?php echo "Witaj ".$_SESSION['user_name']; ?></h1>
-              <h2 class="form-signin-heading">Oto twój plan:</h2>
+              <h1 class="form-signin-heading"><?php echo " Witaj ".$_SESSION['user_name']; ?></h1>
+              <h2 class="form-signin-heading">Twoja lista zadań:</h2>
               <input type="text" class="form-control" name="list" autofocus=""><br>
               <input type="submit" value="Zapisz" class="btn btn-success btn-block" name="save">
             </form><br>

@@ -17,7 +17,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>To do list Login</title>
+    <title>To do list </title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -45,22 +45,40 @@
 
     <div class="container">
 
+        <div class="row">
+            <div class="col-md-6 col-lg-offset-4">
+                <h2>
+                Witaj w liście zadań.
+            </h2>
+            </div>
+            
+        </div>
+
     <div class="col-md-6">
         <form class="form-signin" method="POST" action="login.php">
-        <h2 class="form-signin-heading">Please log in</h2>
+        <h2 class="form-signin-heading">Logowanie</h2>
         <label for="inputuid" class="sr-only">Login</label>
         <input type="text" id="inputuid" name="uid" class="form-control" placeholder="Login " required autofocus maxlength="30"
         minlength="3">
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required maxlength="30" minlength="8">
-        <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Log in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Log in</button><br>
+        <?php 
+
+            if (isset($_SESSION['error_log'])) {
+
+                echo'<div class="alert alert-danger">'.$_SESSION["error_log"].'</div>';               
+                
+            }
+
+         ?>
       </form>
     </div>
 
       
     <div class="col-md-6">
         <form class="form-signin" method="POST" action="register.php">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Rejestracja</h2>
         <label for="inputuid" class="sr-only">Login</label>
         <input type="text" id="inputuid" name="uid" class="form-control" placeholder="Login " required autofocus maxlength="30"
         minlength="3">
@@ -68,7 +86,16 @@
         <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required maxlength="50">
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required maxlength="30" minlength="8">
-        <button class="btn btn-lg btn-primary btn-block" type="submit" name="register">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="register">Sign in</button><br>
+        <?php 
+
+            if (isset($_SESSION['error_reg'])) {
+
+                echo'<div class="alert alert-danger">'.$_SESSION["error_reg"].'</div>';               
+                
+            }
+
+         ?>
       </form>
     </div>
    

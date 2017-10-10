@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Czas generowania: 13 Wrz 2017, 20:57
+-- Czas generowania: 10 Paź 2017, 21:42
 -- Wersja serwera: 5.7.19-0ubuntu0.16.04.1
 -- Wersja PHP: 7.0.22-0ubuntu0.16.04.1
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `todo`
 --
+CREATE DATABASE IF NOT EXISTS `todo` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE `todo`;
 
 -- --------------------------------------------------------
 
@@ -26,10 +28,11 @@ SET time_zone = "+00:00";
 -- Struktura tabeli dla tabeli `list`
 --
 
-CREATE TABLE `list` (
-  `id` int(30) NOT NULL,
+CREATE TABLE IF NOT EXISTS `list` (
+  `id` int(30) NOT NULL AUTO_INCREMENT,
   `user_id` int(30) NOT NULL,
-  `text` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `text` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -38,43 +41,14 @@ CREATE TABLE `list` (
 -- Struktura tabeli dla tabeli `users`
 --
 
-CREATE TABLE `users` (
-  `id` int(20) NOT NULL,
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
   `uid` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL
+  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Indeksy dla zrzutów tabel
---
-
---
--- Indexes for table `list`
---
-ALTER TABLE `list`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT dla tabeli `list`
---
-ALTER TABLE `list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT dla tabeli `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
